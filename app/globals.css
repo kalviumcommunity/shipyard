@@ -1,0 +1,263 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #1a1a2e;
+  --muted: #5b6478;
+  --line: #e4e7f0;
+  --bg: #f6f7fb;
+  --brand: #4b63d6;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Nav */
+.nav {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 1.25rem;
+}
+
+.nav-brand {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--brand);
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* Hero */
+.hero {
+  padding: 2rem 0 1.5rem;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Section head */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 0 1rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.section-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.1rem;
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(26, 26, 46, 0.12);
+}
+
+.card-art {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-emoji {
+  font-size: 3.4rem;
+}
+
+.card-body {
+  padding: 0.9rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-category {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.card-name {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.card-tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.card-price {
+  margin-top: 0.4rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+/* Detail page */
+.back-link {
+  display: inline-block;
+  margin: 0.25rem 0 1.25rem;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.detail-art {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-emoji {
+  font-size: 6rem;
+}
+
+.detail-body {
+  padding: 0 1.5rem 1.75rem;
+}
+
+.detail-name {
+  font-size: 1.9rem;
+  margin: 0.4rem 0 0.3rem;
+}
+
+.detail-tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.detail-price {
+  display: inline-block;
+  margin: 0.7rem 0;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.detail-desc {
+  margin: 0.3rem 0 1.3rem;
+  max-width: 60ch;
+}
+
+.detail-specs-title {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.detail-specs {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.detail-specs li {
+  margin-bottom: 0.3rem;
+}
+
+@media (min-width: 720px) {
+  .detail {
+    grid-template-columns: 320px 1fr;
+  }
+
+  .detail-art {
+    height: 100%;
+    min-height: 320px;
+  }
+
+  .detail-body {
+    padding: 1.75rem 1.75rem 1.75rem 0;
+  }
+}
+
+/* Not found */
+.notfound {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.notfound-title {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem;
+}
+
+.notfound-sub {
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1.25rem;
+}

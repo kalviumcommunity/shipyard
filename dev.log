@@ -1,0 +1,17 @@
+
+> shipyard@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1539ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.5s (497 modules)
+ GET / 200 in 3741ms
+ ○ Compiling /products/[id] ...
+ ✓ Compiled /products/[id] in 658ms (490 modules)
+ GET /products/time-keeper/ 200 in 1598ms
+ GET / 200 in 147ms
+[?25h
