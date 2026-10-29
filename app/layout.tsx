@@ -16,9 +16,19 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <nav className="nav">
-          <Link href="/" className="nav-brand">
-            ⚓ ShipYard
-          </Link>
+          <div className="nav-inner">
+            <Link href="/" className="nav-brand">
+              ⚓ ShipYard
+            </Link>
+            <div className="nav-links">
+              <Link href="/">Home</Link>
+              <Link href="/#Sneakers">Sneakers</Link>
+              <Link href="/#Audio">Audio</Link>
+              <Link href="/#Wearables">Wearables</Link>
+              <Link href="/#Gadgets">Gadgets</Link>
+            </div>
+            <span className="nav-cart">🛒</span>
+          </div>
         </nav>
         {children}
         <footer className="footer">
