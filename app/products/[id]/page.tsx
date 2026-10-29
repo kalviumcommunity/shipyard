@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductCard from "../../components/ProductCard";
-import ProductActions from "../../components/ProductActions";
 import Stars from "../../components/Stars";
 import { getProduct, products, relatedProducts } from "../../data/products";
 
@@ -48,8 +47,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <Stars rating={product.rating} />
           <span className="detail-price">${product.price}</span>
           <p className="detail-desc">{product.description}</p>
-
-          <ProductActions />
 
           <h2 className="detail-specs-title">Specs</h2>
           <ul className="detail-specs">
