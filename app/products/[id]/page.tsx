@@ -1,18 +1,48 @@
+
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProductCard from "../../components/ProductCard";
 import Stars from "../../components/Stars";
 import { getProduct, products, relatedProducts } from "../../data/products";
+
+const RelatedProducts = dynamic(
+  () => import("../../components/RelatedProducts"),
+  {
+    loading: () => (
+      <p className="container">Loading related products...</p>
+    ),
+  }
+);
 
 // Pre-build one static page per product at build time.
 export function generateStaticParams() {
   return products.map((product) => ({ id: product.id }));
 }
 
+// Generate unique SEO metadata for each product.
+export function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Metadata {
+  const product = getProduct(params.id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | ShipYard",
+    };
+  }
+
+  return {
+    title: `${product.name} | ShipYard`,
+    description: product.description,
+  };
+}
+
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProduct(params.id);
 
-  // If the id in the URL does not match a product, show the 404 page.
   if (!product) {
     notFound();
   }
@@ -57,18 +87,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </div>
       </article>
 
-      {related.length > 0 && (
-        <section className="related">
-          <div className="section-head">
-            <h2 className="section-title">More in {product.category}</h2>
-          </div>
-          <div className="grid">
-            {related.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        </section>
-      )}
+      <RelatedProducts products={related} category={product.category} />
     </main>
   );
 }
