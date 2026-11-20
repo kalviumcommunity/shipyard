@@ -1,5 +1,13 @@
+
+import type { Metadata } from "next";
 import ProductCard from "./components/ProductCard";
 import { products, categories } from "./data/products";
+
+export const metadata: Metadata = {
+  title: "ShipYard | Gear for People Who Build, Run & Explore",
+  description:
+    "Explore ShipYard's collection of sneakers, audio gear, wearables, and gadgets.",
+};
 
 export default function HomePage() {
   return (
@@ -55,7 +63,6 @@ export default function HomePage() {
             <span className="section-count">{products.length} items</span>
           </div>
 
-          {/* A responsive grid: one card per product, straight from data. */}
           <div className="grid">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -63,7 +70,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* One section per category, so the page has more to explore. */}
         {categories.map((category) => {
           const inCategory = products.filter((p) => p.category === category);
           return (

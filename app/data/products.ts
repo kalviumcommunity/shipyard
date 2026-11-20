@@ -1,3 +1,4 @@
+
 // The shape of one product. Everything in the app is typed against this.
 export interface Product {
   id: string;
@@ -6,10 +7,11 @@ export interface Product {
   price: number;
   category: "Sneakers" | "Audio" | "Wearables" | "Gadgets";
   emoji: string;
-  accent: string; // CSS color used for the card art background
-  accent2: string; // second color so the art can be a gradient
-  rating: number; // 0 to 5, shown as stars
-  badge?: string; // optional ribbon like "New" or "Popular"
+  image: string;
+  accent: string;
+  accent2: string;
+  rating: number;
+  badge?: string;
   description: string;
   specs: string[];
 }
@@ -18,6 +20,7 @@ export const products: Product[] = [
   {
     id: "wave-runner",
     name: "Wave Runner",
+    image: "/products/wave-runner.jpg",
     tagline: "Everyday running sneakers built for long miles.",
     price: 129,
     category: "Sneakers",
@@ -33,6 +36,7 @@ export const products: Product[] = [
   {
     id: "trail-blazer",
     name: "Trail Blazer",
+    image: "/products/trail-blazer.jpg",
     tagline: "Grippy off-road shoes for rough terrain.",
     price: 149,
     category: "Sneakers",
@@ -47,6 +51,7 @@ export const products: Product[] = [
   {
     id: "pulse-buds",
     name: "Pulse Buds",
+    image: "/products/pulse-buds.jpg",
     tagline: "Wireless earbuds with deep, clean bass.",
     price: 89,
     category: "Audio",
@@ -62,6 +67,7 @@ export const products: Product[] = [
   {
     id: "echo-speaker",
     name: "Echo Speaker",
+    image: "/products/echo-speaker.jpg",
     tagline: "A pocket speaker that fills a room.",
     price: 59,
     category: "Audio",
@@ -76,6 +82,7 @@ export const products: Product[] = [
   {
     id: "time-keeper",
     name: "Time Keeper",
+    image: "/products/time-keeper.jpg",
     tagline: "A smartwatch that tracks everything.",
     price: 199,
     category: "Wearables",
@@ -91,6 +98,7 @@ export const products: Product[] = [
   {
     id: "focus-band",
     name: "Focus Band",
+    image: "/products/focus-band.jpg",
     tagline: "A minimalist fitness tracker.",
     price: 69,
     category: "Wearables",
@@ -105,6 +113,7 @@ export const products: Product[] = [
   {
     id: "power-brick",
     name: "Power Brick",
+    image: "/products/power-brick.jpg",
     tagline: "A fast charger for every device.",
     price: 49,
     category: "Gadgets",
@@ -119,6 +128,7 @@ export const products: Product[] = [
   {
     id: "clip-cam",
     name: "Clip Cam",
+    image: "/products/clip-cam.jpg",
     tagline: "A tiny action camera for any adventure.",
     price: 119,
     category: "Gadgets",
@@ -133,15 +143,15 @@ export const products: Product[] = [
   },
 ];
 
-// The category labels, in display order. Used for the filter chips.
+// The category labels, in display order.
 export const categories = ["Sneakers", "Audio", "Wearables", "Gadgets"] as const;
 
-// Helper: look up one product by its id. Returns undefined if not found.
+// Helper: look up one product by its id.
 export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }
 
-// Helper: other products in the same category (for the "related" row).
+// Helper: other products in the same category.
 export function relatedProducts(product: Product): Product[] {
   return products
     .filter((p) => p.category === product.category && p.id !== product.id)
